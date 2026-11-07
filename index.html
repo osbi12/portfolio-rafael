@@ -11,29 +11,66 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>
-  body{
-    min-height:10vh;
+  body {
+    min-height: 10vh;
   }
 
-  ::-webkit-scrollbar 
-  {
+  ::-webkit-scrollbar {
       width: 12px;
   }
 
-  ::-webkit-scrollbar-track 
-  {
+  ::-webkit-scrollbar-track {
       background: #01021a;
   }
 
-  ::-webkit-scrollbar-thumb 
-  {
+  ::-webkit-scrollbar-thumb {
       background: #007bb5;
       border-radius: 6px;
   }
 
-  ::-webkit-scrollbar-thumb:hover 
-  {
+  ::-webkit-scrollbar-thumb:hover {
       opacity: .95;
+  }
+
+  .custom-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .my-card {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .my-card h3 {
+    font-size: 1.25rem;
+    color: #01021a;
+    margin: 0.75rem 0;
+  }
+
+  .my-card p {
+    font-size: 0.95rem;
+    color: #333333;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .cert-link {
+    display: inline-block;
+    font-weight: 600;
+    color: #007bb5;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    margin-top: auto;
   }
 </style>
 <body>
@@ -45,7 +82,8 @@
             <li class="nav__link"><a href="#header">Página Inicial</a></li>
             <li class="nav__link"><a href="#services">Competências</a></li>
             <li class="nav__link"><a href="#about">Sobre Mim</a></li>
-            <li class="nav__link"><a href="#proyects">Certificações & Perfil</a></li>
+            <li class="nav__link"><a href="#practical-projects">Projetos Práticos</a></li>
+            <li class="nav__link"><a href="#proyects">Certificações</a></li>
             <li class="nav__link"><a href="#contact">Contacto</a></li>
           </ul>
 
@@ -86,19 +124,19 @@
             <div class="services__card">
               <i class="services__card-icon fa-solid fa-shield-halved"></i>
               <h3 class="services__card-title">HSEQ & Segurança Operacional</h3>
-              <p class="services__card-description">Certificação HSEQ Compliance (DB HSE International), gestão de riscos, segurança de processos industriais, proteção de dados e cibersegurança aplicada (Trident Academy).</p>
+              <p class="services__card-description">Certificação HSEQ Compliance (DB HSE International), gestão de riscos (ISO 31000), métricas SGSI (ISO/IEC 27004) e cibersegurança aplicada.</p>
             </div>
 
             <div class="services__card">
               <i class="services__card-icon fa-solid fa-network-wired"></i>
-              <h3 class="services__card-title">Redes & Infraestrutura (Cisco)</h3>
-              <p class="services__card-description">Formação avançada Cisco CCNA (Introduction to Networks & Routing, Switching and Wireless Essentials) e segurança corporativa Microsoft SC-900.</p>
+              <h3 class="services__card-title">Redes & Cloud (Cisco & AWS)</h3>
+              <p class="services__card-description">Formação Cisco CCNA, Computação em Nuvem AWS Discovery Day, Microsoft SC-900 e infraestruturas de rede corporativa.</p>
             </div>
 
             <div class="services__card">
               <i class="services__card-icon fa-solid fa-industry"></i>
-              <h3 class="services__card-title">Automação & Mobilidade</h3>
-              <p class="services__card-description">Sistemas de automação industrial, comandos elétricos, análise de dados (Excel/Power BI) e Carta de Condução Profissional (Ligeiro).</p>
+              <h3 class="services__card-title">Automação Industrial & Elétrica</h3>
+              <p class="services__card-description">Controladores Lógicos Programáveis (PLC), Comandos Elétricos e Acionamento de Máquinas (Certificação GHF/INEFOP).</p>
             </div>
           </div>
         </div>
@@ -108,7 +146,7 @@
         <div class="section__content container">
           <h2 class="section__title">Sobre Mim</h2>
           <p class="about__text">
-            Licenciado em Engenharia Informática pelo Instituto Superior Politécnico Independente (ISPI) e residente em Cabinda, Angola. Uno competências sólidas de engenharia e redes de computadores com certificações internacionais de peso em conformidade <strong>HSEQ (DB HSE International)</strong>, <strong>Cibersegurança (Trident Academy)</strong> e <strong>Redes Cisco CCNA</strong>.
+            Licenciado em Engenharia Informática pelo Instituto Superior Politécnico Independente (ISPI) e residente em Cabinda, Angola. Uno competências sólidas em engenharia, redes e automação industrial com certificações internacionais de excelência em conformidade <strong>HSEQ</strong>, <strong>Governança e Gestão de Riscos (ISO 31000 / ISO 27004)</strong>, <strong>Redes Cisco</strong> e <strong>Automação (PLC)</strong>.
             <br><br>
             Com experiência comprovada em docência técnica, suporte avançado de TI e forte foco em segurança de processos industriais, estou preparado para impulsionar a eficiência, a integridade operacional e a segurança tecnológica em empresas de referência nos setores petrolífero e industrial.
           </p>
@@ -116,58 +154,163 @@
         </div>
       </section>
 
-      <section class="proyects" id="proyects">
+      <!-- SEÇÃO DE PROJETOS PRÁTICOS -->
+      <section class="proyects" id="practical-projects" style="background-color: #f9fbfd; padding: 50px 0;">
+        <div class="section__content container">
+          <h2 class="section__title section__title--black">Projetos Práticos & Operacionais</h2>
+
+          <div class="custom-card-grid">
+            
+            <div class="my-card">
+              <div>
+                <i class="fa-solid fa-screwdriver-wrench fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
+                <h3>Upgrade de Hardware (Help Desk)</h3>
+                <p>Substituição de HDD por SSD Kingston de 480GB, configuração de BIOS, instalação de Windows e otimização de performance para máxima produtividade corporativa.</p>
+              </div>
+              <a href="https://www.linkedin.com/in/rafael-malonda-a38458114/" target="_blank" class="cert-link"><i class="fa-brands fa-linkedin"></i> Ver publicação no LinkedIn</a>
+            </div>
+
+            <div class="my-card">
+              <div>
+                <i class="fa-solid fa-network-wired fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
+                <h3>Infraestrutura de Rede e Cabelagem</h3>
+                <p>Instalação de infraestrutura física e cabelagem estruturada para suporte robusto de redes locais e sistemas de CCTV com elevados padrões de segurança.</p>
+              </div>
+              <a href="https://www.linkedin.com/in/rafael-malonda-a38458114/" target="_blank" class="cert-link"><i class="fa-brands fa-linkedin"></i> Ver projeto no LinkedIn</a>
+            </div>
+
+            <div class="my-card">
+              <div>
+                <i class="fa-solid fa-diagram-project fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
+                <h3>Simulações Cisco Packet Tracer (PTPM)</h3>
+                <p>Configuração avançada de topologias de rede para empresas de médio porte, interligação de racks de servidores, encaminhamento e firewalls de segurança.</p>
+              </div>
+              <a href="https://www.linkedin.com/in/rafael-malonda-a38458114/" target="_blank" class="cert-link"><i class="fa-brands fa-linkedin"></i> Ver simulação no LinkedIn</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO DE CERTIFICAÇÕES OFICIAIS -->
+      <section class="proyects" id="proyects" style="background-color: #eef2f5; padding: 50px 0;">
         <div class="section__content container">
           <h2 class="section__title section__title--black">Certificações Oficiais & Qualificações</h2>
 
-          <div class="proyects__cards">
+          <div class="custom-card-grid">
             
-            <div class="proyects__card">
-              <div class="proyects__card-info">
+            <div class="my-card">
+              <div>
                 <i class="fa-solid fa-award fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
-                <h3 class="proyects__card-title">HSEQ Compliance</h3>
-                <p class="proyects__card-description">Certificação oficial emitida pela <strong>DB HSE International</strong>, focada em padrões internacionais de Saúde, Segurança, Meio Ambiente e Qualidade.</p>
+                <h3>HSEQ Compliance</h3>
+                <p>Certificação oficial emitida pela <strong>DB HSE International</strong>, focada em padrões internacionais de Saúde, Segurança, Meio Ambiente e Qualidade.</p>
               </div>
+              <a href="HSEQ-Certificate.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Certificado (PDF)</a>
             </div>
 
-            <div class="proyects__card">
-              <div class="proyects__card-info">
+            <div class="my-card">
+              <div>
+                <i class="fa-solid fa-industry fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
+                <h3>PLC & Automação Industrial (GHF/INEFOP)</h3>
+                <p>Formação profissional em Controladores Lógicos Programáveis (PLC) com 70h e classificação de 16 valores, validada pelo INEFOP em Cabinda, Angola.</p>
+              </div>
+              <a href="Certificado%20de%20Electricidade%20e%20automa%C3%A7%C3%A3o%20industrial%20PLC.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Certificado (PDF)</a>
+            </div>
+
+            <div class="my-card">
+              <div>
+                <i class="fa-solid fa-bolt fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
+                <h3>Comandos Elétricos & Máquinas (GHF/INEFOP)</h3>
+                <p>Formação em Comandos Elétricos e Acionamento de Máquinas (70h, 15 valores), cobrindo partidas de motores trifásicos, relés e proteções industriais.</p>
+              </div>
+              <a href="Certificado%20de%20Comandos%20El%C3%A9tricos%20e%20Acionamento%20de%20M%C3%A1quinas.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Certificado (PDF)</a>
+            </div>
+
+            <div class="my-card">
+              <div>
                 <i class="fa-solid fa-lock fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
-                <h3 class="proyects__card-title">Cibersegurança & Info Awareness</h3>
-                <p class="proyects__card-description">Conclusão com 100% de aproveitamento na <strong>Trident Academy</strong>, baseada em padrões de boas práticas do Reino Unido e Lei de Proteção de Dados.</p>
+                <h3>Cibersegurança & Info Awareness</h3>
+                <p>Conclusão com 100% de aproveitamento na <strong>Trident Academy</strong>, baseada em padrões de boas práticas do Reino Unido e Lei de Proteção de Dados.</p>
               </div>
+              <a href="Certificate-8OYYXGFGD6-Rafael-Malonda.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Certificado (PDF)</a>
             </div>
 
-            <div class="proyects__card">
-              <div class="proyects__card-info">
+            <div class="my-card">
+              <div>
+                <i class="fa-solid fa-shield-halved fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
+                <h3>ISO 31000 Gestão de Riscos</h3>
+                <p>Certificação em Introdução à Gestão de Riscos Corporativos (ISO 31000) emitida pela Ti Exames.</p>
+              </div>
+              <a href="certificado%20de%20Introdu%C3%A7%C3%A3o%20a%20ISO%2031000%20Gest%C3%A3o%20de%20Riscos%20Corporativos.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Certificado (PDF)</a>
+            </div>
+
+            <div class="my-card">
+              <div>
+                <i class="fa-solid fa-chart-pie fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
+                <h3>ISO/IEC 27004 (Métricas & KPIs para SGSI)</h3>
+                <p>Desenvolvimento de Métricas e KPIs para o Sistema de Gestão de Segurança da Informação (Ti Exames).</p>
+              </div>
+              <a href="certificado%20da%20ISOIEC_27004.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Certificado (PDF)</a>
+            </div>
+
+            <div class="my-card">
+              <div>
                 <i class="fa-solid fa-network-wired fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
-                <h3 class="proyects__card-title">Cisco CCNA (1 & 2)</h3>
-                <p class="proyects__card-description">Formação completa pelo programa <strong>Cisco Networking Academy</strong>: Introduction to Networks e Routing, Switching and Wireless Essentials.</p>
+                <h3>Cisco CCNA (1 & 2)</h3>
+                <p>Formação completa pelo programa <strong>Cisco Networking Academy</strong>: Introduction to Networks e Routing, Switching and Wireless Essentials.</p>
+              </div>
+              <div>
+                <a href="CCNA%20Introduction%20to%20Networks.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver CCNA 1 (PDF)</a> &nbsp;|&nbsp; 
+                <a href="CCNA%20Switching_Routing%20and%20Wireless%20Essentials.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver CCNA 2 (PDF)</a>
               </div>
             </div>
 
-            <div class="proyects__card">
-              <div class="proyects__card-info">
+            <div class="my-card">
+              <div>
+                <i class="fa-solid fa-cloud fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
+                <h3>Computação em Nuvem AWS Discovery Day</h3>
+                <p>Certificação oficial de conclusão em Cloud Computing pela Ka Solution / AWS Training and Certification.</p>
+              </div>
+              <a href="Certificado%20de%20Computa%C3%A7%C3%A3o%20em%20Nuvem%20AWS.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Certificado (PDF)</a>
+            </div>
+
+            <div class="my-card">
+              <div>
                 <i class="fa-solid fa-shield-check fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
-                <h3 class="proyects__card-title">Microsoft SC-900</h3>
-                <p class="proyects__card-description">Microsoft Security, Compliance, and Identity Fundamentals pela IT Knowledge Academy.</p>
+                <h3>Microsoft SC-900</h3>
+                <p>Microsoft Security, Compliance, and Identity Fundamentals pela IT Knowledge Academy.</p>
               </div>
+              <a href="Cerificado%20da%20Microsoft%20Security,%20Compliance%20and%20Identity%20Fundamentals%20SC%20900.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Certificado (PDF)</a>
             </div>
 
-            <div class="proyects__card">
-              <div class="proyects__card-info">
+            <div class="my-card">
+              <div>
                 <i class="fa-solid fa-chart-line fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
-                <h3 class="proyects__card-title">Power BI & Excel Express</h3>
-                <p class="proyects__card-description">Capacitação avançada em análise de dados, relatórios gerenciais e automação de planilhas para tomada de decisão estratégica.</p>
+                <h3>Power BI & Excel Express</h3>
+                <p>Capacitação avançada em análise de dados, relatórios gerenciais e automação de planilhas para tomada de decisão estratégica.</p>
+              </div>
+              <div>
+                <a href="Certificado%20-%20Simplifica%20Power%20BI%20Express.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Power BI (PDF)</a> &nbsp;|&nbsp; 
+                <a href="Certificado%20-%20Simplifica%20Excel%20Express.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Excel (PDF)</a>
               </div>
             </div>
 
-            <div class="proyects__card">
-              <div class="proyects__card-info">
-                <i class="fa-solid fa-id-card fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
-                <h3 class="proyects__card-title">Carta Profissional (Ligeiro)</h3>
-                <p class="proyects__card-description">Carta de Condução válida até 2037, com aptidão profissional para deslocações operacionais e flexibilidade de campo.</p>
+            <div class="my-card">
+              <div>
+                <i class="fa-solid fa-laptop-file fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
+                <h3>MS Office Specialist (Modi Training)</h3>
+                <p>Diploma completo em MS Office (Windows, Word, Excel, PowerPoint, Access, Internet & E-mail) com aproveitamento excelente.</p>
               </div>
+              <a href="Certificado%20MS%20Office.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Certificado (PDF)</a>
+            </div>
+
+            <div class="my-card">
+              <div>
+                <i class="fa-solid fa-id-card fa-2x" style="color: #007bb5; margin-bottom: 10px;"></i>
+                <h3>Carta Profissional (Ligeiro)</h3>
+                <p>Carta de Condução válida até 2037, com aptidão profissional para deslocações operacionais e flexibilidade de campo.</p>
+              </div>
+              <a href="Carta%20de%20condu%C3%A7%C3%A3o.pdf" target="_blank" class="cert-link"><i class="fa-solid fa-file-pdf"></i> Ver Documento (PDF)</a>
             </div>
 
           </div>
@@ -213,7 +356,7 @@
 
     </main>
   <footer class="footer container">
-    <p>&copy; 2026 Rafael Malonda — Engenharia Informática | HSEQ & Redes</p>
+    <p>&copy; 2026 Rafael Malonda — Engenharia Informática | Automação, HSEQ & Redes</p>
   </footer>
 
   <script src="js/main.js"></script>
